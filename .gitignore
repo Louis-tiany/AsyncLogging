@@ -1,0 +1,4 @@
+*.out
+test.cc
+
+*.log
