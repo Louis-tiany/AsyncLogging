@@ -7,7 +7,7 @@
 
 #include <algorithm>
 #include <iostream>
-#include "AsyncLogging.h"
+#include "../include/AsyncLogging.h"
 
 
 AsyncLogging::AsyncLogging(std::string basename, off_t roll_size, int flush_interval) : 

@@ -8,7 +8,8 @@
 #include <bits/types/time_t.h>
 #include <cstdlib>
 #include <iostream>
-#include "Logging.h"
+#include <unordered_map>
+#include "../include/Logging.h"
 
 __thread char t_errorbuf[512];
 __thread char t_time[64];
@@ -17,14 +18,16 @@ __thread time_t t_last_second;
 
 Logger::Level g_level = Logger::Level::TRACE;
 
-const char *log_level_name[] = {
-    "TRACE",
-    "DEBUG",
-    "INFO"
-    "WARN",
-    "ERROR",
-    "FATAL"
+
+const std::unordered_map<Logger::Level, const char *> log_level_table = {
+    {Logger::Level::TRACE, "TRACE "},
+    {Logger::Level::DEBUG, "DEBUG "},
+    {Logger::Level::INFO, "INFO  "},
+    {Logger::Level::WARN, "WARN  "},
+    {Logger::Level::FATAL, "FATAL "},
 };
+
+
 
 class T {
 public:
@@ -66,6 +69,7 @@ Logger::Impl::Impl(Level level, int old_errno, const SourceFile& file, int line)
     basename_(file)
 { 
     format_time();
+    stream_ << T(log_level_table.at(level), 6);
 }
 
 void Logger::Impl::Impl::format_time() {
@@ -83,8 +87,8 @@ void Logger::Impl::Impl::format_time() {
                            t.tm_min, t.tm_sec);
     }
 
-    Fmt us(".%06d", micro_seconds);
-    stream_ << T(t_time, 17) << T(us.data(), 9);
+    Fmt us(".%06d ", micro_seconds);
+    stream_ << T(t_time, 17) << T(us.data(), 8);
 }
 
 

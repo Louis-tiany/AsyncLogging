@@ -6,7 +6,9 @@
 */
 
 #include <iostream>
-#include "../Logging.h"
+
+#include "../include/AsyncLogging.h"
+#include "../include/Logging.h"
 
 
 int main(int argc, char *argv[])

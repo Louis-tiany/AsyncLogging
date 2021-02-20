@@ -8,7 +8,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>
-#include "Thread.h"
+#include "../include/Thread.h"
 #include <sys/syscall.h>
 
 __thread int t_cached_tid = 0;

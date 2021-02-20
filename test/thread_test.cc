@@ -7,8 +7,8 @@
 
 #include <functional>
 #include <iostream>
-#include "../Thread.h"
-#include "../ConCurrency.h"
+#include "../include/Thread.h"
+#include "../include/ConCurrency.h"
 
 
 void thread_func() {

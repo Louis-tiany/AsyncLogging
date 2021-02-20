@@ -1,4 +1,5 @@
-*.out
-test.cc
-
 *.log
+*.out
+*.a
+*.so
+build

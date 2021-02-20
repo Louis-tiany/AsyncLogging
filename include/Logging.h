@@ -32,12 +32,12 @@ public:
         template<int N>
         SourceFile(const char (&arr)[N]) :
             data_(arr),
-            size_(N)
+            size_(N - 1)
         { 
             const char *slash = strchr(data_, '/');
             if (slash) {
                 data_ = slash + 1;
-                size_ -= static_cast<int>(slash - data_);
+                size_ -= static_cast<int>(data_ - arr);
             }
         }
 
@@ -106,7 +106,15 @@ inline Logger::Level Logger::log_level() {
 #define LOG_TRACE if(Logger::log_level() <= Logger::Level::TRACE)\
                     Logger(__FILE__, __LINE__, Logger::Level::TRACE, __func__).stream()
 
+#define LOG_DEBUG if(Logger::log_level() <= Logger::Level::DEBUG)\
+                    Logger(__FILE__, __LINE__, Logger::Level::TRACE, __func__).stream()
 
+#define LOG_INFO if(Logger::log_level() <= Logger::Level::INFO)\
+                    Logger(__FILE__, __LINE__).stream()
+
+#define LOG_WARN Logger(__FILE__, __LINE__, Logger::Level::WARN).stream()
+#define LOG_ERROR Logger(__FILE__, __LINE__, Logger::Level::ERROR).stream()
+#define LOG_FATAL Logger(__FILE__, __LINE__, Logger::Level::FATAL).stream()
 
 
 #endif

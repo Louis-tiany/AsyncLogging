@@ -6,9 +6,9 @@
 */
 
 #include <iostream>
-#include "ConCurrency.h"
-#include "Thread.h"
-#include "LogFile.h"
+#include "../include/ConCurrency.h"
+#include "../include/Thread.h"
+#include "../include/LogFile.h"
 #include <unistd.h>
 #include <sys/types.h>
 #include <errno.h>

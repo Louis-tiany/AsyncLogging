@@ -8,7 +8,7 @@
 #include <bits/types/struct_tm.h>
 #include <cstdio>
 #include <iostream>
-#include "TimeStamp.h"
+#include "../include/TimeStamp.h"
 #include <sys/time.h>
 #include <inttypes.h>
 
