@@ -1,8 +1,8 @@
 /*
-	* File     : LogStream.cc
-	* Author   : *
-	* Mail     : *
-	* Creation : Tue 26 Jan 2021 11:42:44 AM CST
+    * File     : LogStream.cc
+    * Author   : *
+    * Mail     : *
+    * Creation : Tue 26 Jan 2021 11:42:44 AM CST
 */
 
 #include <iostream>

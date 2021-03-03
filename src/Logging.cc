@@ -69,13 +69,14 @@ Logger::Impl::Impl(Level level, int old_errno, const SourceFile& file, int line)
     basename_(file)
 { 
     format_time();
-    stream_ << T(log_level_table.at(level), 6);
+    stream_ << T(log_level_table.at(level), 8);
 }
 
 void Logger::Impl::Impl::format_time() {
     int64_t micro_seconds_since_epoch = time_.micro_seconds_since_epoch();
     time_t seconds = static_cast<time_t>(micro_seconds_since_epoch / TimeStamp::kMicroSecondsPerSecond);
     int micro_seconds = static_cast<int>(micro_seconds_since_epoch % TimeStamp::kMicroSecondsPerSecond);
+    //同一秒内只需要格式化微秒
     if (seconds != t_last_second) {
         t_last_second = seconds;
         struct tm t;

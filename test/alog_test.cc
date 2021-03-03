@@ -21,19 +21,14 @@ int main(int argc, char *argv[])
 {
     Logger::set_output(async);
     Logger::set_log_level(Logger::Level::TRACE);
-    AsyncLogging log("log.log", 10);
+    AsyncLogging log("log.log", 10000000);
     glog = &log;
     log.start();
     
-    sleep(10);
-    for (int i = 0; i < 10000000; ++i) {
+    for (int i = 0; i < 1000000; ++i) {
         LOG_TRACE << "logger lib test";
     }
 
-    for (int i = 0; i < 10000000; ++i) {
-        LOG_INFO << "log info test";
-    }
-    LOG_FATAL << "fatal error";
 
     return 0;
 }

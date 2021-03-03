@@ -93,7 +93,7 @@ void LogFile::flush() {
 
 void LogFile::append_unlock(const char *logline, int len) {
     file_->append(logline, len);
-    if (file_->written_bytes()) {
+    if (file_->written_bytes() > roll_size_) {
         roll_file();
     }
     else {
