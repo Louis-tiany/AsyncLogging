@@ -12,16 +12,5 @@ aux_source_directory(./src DIR_SRCS)
 SET(LIBRARY_OUTPUT_PATH "${PROJECT_SOURCE_DIR}/lib")
 
 add_library(alog STATIC ${DIR_SRCS})
-link_directories(${PROJECT_SOURCE_DIR}/lib)
 
-add_executable(test.out test/test.cc)
-
-add_executable(alog.out test/alog_test.cc)
-target_link_libraries(alog.out libalog.a pthread)
-
-add_executable(logger_test.out test/loger_test.cc)
-target_link_libraries(logger_test.out libalog.a pthread)
-
-add_executable(thread_test.out test/thread_test.cc)
-target_link_libraries(thread_test.out pthread libalog.a)
-
+add_subdirectory(test)

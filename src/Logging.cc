@@ -20,11 +20,11 @@ Logger::Level g_level = Logger::Level::TRACE;
 
 
 const std::unordered_map<Logger::Level, const char *> log_level_table = {
-    {Logger::Level::TRACE, "TRACE "},
-    {Logger::Level::DEBUG, "DEBUG "},
-    {Logger::Level::INFO, "INFO  "},
-    {Logger::Level::WARN, "WARN  "},
-    {Logger::Level::FATAL, "FATAL "},
+    {Logger::Level::TRACE, "[TRACE] "},
+    {Logger::Level::DEBUG, "[DEBUG] "},
+    {Logger::Level::INFO, "[INFO]  "},
+    {Logger::Level::WARN, "[WARN]  "},
+    {Logger::Level::FATAL, "[FATAL] "},
 };
 
 
